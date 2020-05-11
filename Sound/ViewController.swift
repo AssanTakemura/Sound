@@ -13,8 +13,16 @@ class ViewController: UIViewController {
     
     @IBOutlet var drumButton: UIButton!
     
+    @IBOutlet var pianoButton: UIButton!
+    
+    @IBOutlet var guitarBuuton: UIButton!
+    
     let drumSoundPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "drumSound")!.data)
-
+    
+    let pianoSoundPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "pianoSound")!.data)
+    
+    let guitarSoundPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "guitarSound")!.data)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,11 +38,43 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func touchDownPianoButton(){
+        
+        pianoButton.setImage(UIImage(named: "pianoPlayingImage"), for: .normal)
+        
+        pianoSoundPlayer.currentTime = 0
+        
+        pianoSoundPlayer.play()
+        
+    }
+    
+    @IBAction func touchDownGuitarButton(){
+        
+        guitarBuuton.setImage(UIImage(named: "guitarPlayingImage"), for: .normal)
+        
+        guitarSoundPlayer.currentTime = 0
+        
+        guitarSoundPlayer.play()
+        
+        
+    }
+    
     @IBAction func touchUpDrumButton(){
         
         drumButton.setImage(UIImage(named: "drumImage"), for: .normal)
         
     }
-
+    
+    @IBAction func touchUpPianoButton(){
+        
+        pianoButton.setImage(UIImage(named: "pianoImage"), for: .normal)
+        
+    }
+    
+    @IBAction func touchUpGuitarButton(){
+        
+        guitarBuuton.setImage(UIImage(named: "guitarImage"), for: .normal)
+        
+    }
 }
 
